@@ -19,6 +19,7 @@ public class Solutions {
         int numberOfColumns1 = input1[0].length;
         int numberOfRows2 = input2.length;
         int numberOfColumns2 = input2[0].length;
+        // according to matrix rules, if the columns for the first matrix and rows for the second are not the same, it does not work
         if(numberOfColumns1!=numberOfRows2){
             return null;
         }
@@ -28,29 +29,29 @@ public class Solutions {
             //for each column in new matrix
             for(int c = 0; c<newArr[r].length;c++){
                 int sum = 0;
+                // for number of columns in matrix1 or rows in matrix2
                 for(int k = 0; k<numberOfColumns1; k++){
+                    // multiply input1 part row part column by input2 part row part column
                     sum += input1[r][k] * input2[k][c];
                 }
+                // set new array part row part column equal to the sum
                 newArr[r][c]=sum;
             }
         }
         return newArr;
     }
-    public int det2(int[][] input){
+    public int determinant(int[][] input){
         int det = 0;
-        if(input.length!=2||input[0].length!=2){
-            return det;
+        //  if the matrix is 3*3, use det formula for 3*3 matrices
+        if(input.length==3&&input[0].length==3){
+            det = Math.abs(input[0][0] * (input[1][1] * input[2][2] - input[1][2] * input[2][1]) - input[0][1] * (input[1][0] * input[2][2] - input[1][2] * input[2][0]) + input[0][2] * (input[1][0] * input[2][1] - input[1][1] * input[2][0]));
         }
-        det = Math.abs(input[0][0]*input[1][1]-input[0][1]*input[1][0]);
-        return det;
-    }
-    public int det3(int[][] input){
-        int det = 0;
-        if(input.length!=3||input[0].length!=3){
-            return det;
+        //  if the matrix is 2*2, use det formula for 2*2 matrices
+        if(input.length==2&&input[0].length==2){
+            det = Math.abs(input[0][0]*input[1][1]-input[0][1]*input[1][0]);
         }
-        det = Math.abs(input[0][0] * (input[1][1] * input[2][2] - input[1][2] * input[2][1]) - input[0][1] * (input[1][0] * input[2][2] - input[1][2] * input[2][0]) + input[0][2] * (input[1][0] * input[2][1] - input[1][1] * input[2][0]));
         return det;
+
     }
     public void print(int[][] arr){
         for(int r = 0; r<arr.length; r++){

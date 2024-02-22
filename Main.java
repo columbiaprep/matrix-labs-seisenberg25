@@ -7,9 +7,8 @@ public class Main {
         Solutions sol = new Solutions();
         sol.print(sol.scale(inputArr1,2));
         sol.print((sol.multiply(inputArr1,inputArr2)));
-        System.out.println((sol.det2(inputArr1)));
-        System.out.println((sol.det2(inputArr3)));
-        System.out.println((sol.det3(inputArr1)));
-        System.out.println((sol.det3(inputArr4)));
+        System.out.println((sol.determinant(inputArr1)));
+        System.out.println((sol.determinant(inputArr3)));
+        System.out.println((sol.determinant(inputArr4)));
     }
 }
